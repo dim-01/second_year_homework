@@ -1,9 +1,9 @@
 from src.masks import get_mask_card_number, get_mask_account
-#Добавляю функции из модуля masks.py
+"""Добавляю функции из модуля masks.py"""
 
 def mask_account_card(account_card: str) -> str:
-    #Функция которая умеет обрабатывать информацию как о картах, так и о счетах
-    #С помощью функций из прошлого урока
+    """Функция которая умеет обрабатывать информацию как о картах, так и о счетах"""
+    """С помощью функций из прошлого урока"""
     if account_card[:4] == "Счет":
         return f"{account_card[:-21]} {get_mask_account(account_card[-20:])}"
     else:
@@ -21,7 +21,7 @@ print(mask_account_card("Счет 73654108430135874305"))
 
 
 def get_date(date_string: str) -> str:
-    # Функция для вывода даты
+    """Функция для вывода даты"""
     date_parts = date_string.split("T")
     return date_parts[0].split("-")[2] + "." + date_parts[0].split("-")[1] + "." + date_parts[0].split("-")[0]
 
