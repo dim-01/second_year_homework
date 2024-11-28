@@ -1,6 +1,7 @@
 from src.masks import get_mask_card_number, get_mask_account
 """Добавляю функции из модуля masks.py"""
 
+
 def mask_account_card(account_card: str) -> str:
     """Функция которая умеет обрабатывать информацию как о картах, так и о счетах"""
     """С помощью функций из прошлого урока"""
