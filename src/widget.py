@@ -5,10 +5,14 @@ from src.masks import get_mask_card_number, get_mask_account
 def mask_account_card(account_card: str) -> str:
     """Функция которая умеет обрабатывать информацию как о картах, так и о счетах"""
     """С помощью функций из прошлого урока"""
-    if account_card[:4] == "Счет":
-        return f"{account_card[:-21]} {get_mask_account(account_card[-20:])}"
+    if "Счет" in account_card:
+        parts = account_card.split()
+        return f"{parts[0]} {get_mask_account(parts[1])}"
+    elif "Карта" in account_card:
+        parts = account_card.split()
+        return f"{parts[0]} {get_mask_card_number(parts[1])}"
     else:
-        return f"{account_card[:-17]} {get_mask_card_number(account_card[-16:])}"
+        return account_card  # Возвращаем исходные данные, если это не карта и не счёт
 
 
 print(mask_account_card("Maestro 1596837868705199"))
@@ -23,6 +27,8 @@ print(mask_account_card("Счет 73654108430135874305"))
 
 def get_date(date_string: str) -> str:
     """Функция для вывода даты"""
+    if not date_string:
+        return ""
     date_parts = date_string.split("T")
     return date_parts[0].split("-")[2] + "." + date_parts[0].split("-")[1] + "." + date_parts[0].split("-")[0]
 
