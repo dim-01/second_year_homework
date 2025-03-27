@@ -12,8 +12,6 @@ def test_filter_by_state(sample_data, state, expected_ids):
     assert [item["id"] for item in result] == expected_ids
 
 
-# tests/test_processing.py
-import pytest
 from src.processing import sort_by_date
 
 def test_sort_by_date_ascending(sample_data):
