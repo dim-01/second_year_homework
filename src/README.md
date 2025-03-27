@@ -43,3 +43,4 @@ get_date(input_date): Преобразует дату из формата ISO в
 3. Проверьте покрытие кода:
    ```bash
    pytest --cov=src tests/
+   
